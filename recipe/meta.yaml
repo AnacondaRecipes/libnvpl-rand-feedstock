@@ -102,6 +102,9 @@ extra:
   skip-lints:
     # license_url is kept on all Nvidia feedstocks per team convention
     - deprecate_license_url
+    # The -dev output's pin_subpackage(runtime, exact=True) host dep is exact,
+    # but the linter parses the raw recipe and can't see the jinja pin.
+    - host_section_needs_exact_pinnings
     # runtime output name is jinja-computed; the 1-to-1 anaconda.yaml check
     # compares against the raw (unrendered) name and can't match it.
     - missing_source_tracking
